@@ -95,7 +95,6 @@ app.get('/users', async (req, res) => {
 
 app.get('/user/:id/drafts', async (req, res) => {
   const { id } = req.params
-
   const drafts = await prisma.user
     .findUnique({
       where: {
