@@ -1,0 +1,22 @@
+// type of database
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// client generator
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Models
+model User {
+  id        String   @id @map("_id") @db.Text
+  createdAt DateTime @default(now())
+  name      String?
+  email     String   @unique
+  salt      String
+  hash      String
+
+  @@map("users")
+}
