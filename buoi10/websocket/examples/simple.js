@@ -15,11 +15,20 @@ app.get('/', (req, res) => {
   res.end();
 });
 
+function returnMessageToClient(message) {
+  const ws = expressWs.getWss('/');
+  ws.clients.forEach((client) => {
+    client.send(message);
+  });
+}
+
 app.ws('/', (ws, req) => {
   ws.on('message', (msg) => {
     console.log(msg);
   });
-  console.log('socket', req.testing);
+  setInterval(() => {
+    returnMessageToClient(Math.random());
+  }, 5000);
 });
 
 app.listen(3000);

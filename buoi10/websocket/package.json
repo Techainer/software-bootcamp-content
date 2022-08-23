@@ -5,6 +5,7 @@
   "main": "index",
   "module": "src/index",
   "scripts": {
+    "start": "node examples/simple.js",
     "lint": "eslint src/"
   },
   "author": "Henning Morud <henning@morud.org>",

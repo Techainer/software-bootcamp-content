@@ -7,7 +7,6 @@ const { app } = expressWs;
 app.ws('/a', (ws, req) => {
 });
 const aWss = expressWs.getWss('/a');
-
 app.ws('/b', (ws, req) => {
 });
 
